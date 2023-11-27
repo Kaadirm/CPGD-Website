@@ -1,0 +1,151 @@
+.header-container{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    .header-frame{
+        position: relative;
+        z-index: 10;
+        width: 100%;
+        display: grid;
+        grid-template-columns: auto auto 3fr auto;
+        border: 4px solid #000000;
+        background-color: white;
+        align-items: center;
+        font-family: "Helvetica Now Display", sans-serif;
+        .header-redCol{
+            width: calc(0.7rem + 0.7vw);
+            min-height: calc(3.5rem + 3.5vw);
+            height: 100%;
+            background-color: rgb(255, 0, 22);
+        }
+        .header-companyName{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            row-gap: calc(0.25rem + 0.25vw);
+            padding: calc(0.5rem + 0.5vw);
+            height: 100%;
+            h2{
+                font-size: calc(1.75rem + 1.75vw);
+                font-weight: 700;
+            }
+            p{
+                font-size: calc(0.6rem + 0.6vw);
+                font-weight: 600;
+            }
+        }
+        .header-nav{
+            padding: 2.5%;
+            line-height: 2rem;
+            border-left: 4px solid #000000;
+            border-right: 4px solid #000000;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            font-size: calc(0.6rem + 0.6vw);
+            font-weight: 600;
+            .header-navWrapper{
+                display: flex;
+                column-gap: calc(0.5rem + 1vw);
+                    
+            }
+            @media screen and (max-width: 975px) {
+                display: none;
+            }
+        }
+        .header-navSuggest{
+            padding: calc(1rem + 1vw);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            row-gap: calc(0.3rem + 0.3vw);
+            a{
+                display: flex;
+                column-gap: calc(0.2rem + 0.2vw);
+                font-size: calc(0.7rem + 0.7vw);
+                font-weight: 600;
+            }
+            @media screen and (max-width: 975px) {
+                display: none;
+            }
+        }
+        .header-menuBtn-div{
+            @media screen and (min-width: 976px) {
+                display: none;
+            }
+            position: absolute;
+            right: 1%;
+            .header-menuBtn{
+                display: inline-block;
+                cursor: pointer;
+                .bar1, .bar2, .bar3 {
+                    width: 35px;
+                    height: 5px;
+                    background-color: #333;
+                    margin: 6px 0;
+                    transition: 0.4s;
+            }
+                .change.bar1 {
+                    transform: translate(0, 11px) rotate(-45deg);
+                    
+                }
+                .change.bar2 {
+                    opacity: 0;
+                }
+                .change.bar3 {
+                    transform: translate(0, -11px) rotate(45deg);
+                }
+            }
+        }
+    }
+
+    .header-navOverlay{
+        position: fixed;
+        width: 100%;
+        z-index: 9;
+        font-family: "Helvetica Now Display", sans-serif;
+        font-weight: 700;
+        height: 0;
+        overflow: hidden;
+        transform: translateY(-100%);
+        transition: height 200ms ease-in-out, transform 200ms ease-in-out;
+        .header-suggestMobile{
+            width: 100%;
+            padding: calc(1rem + 1vw);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            row-gap: calc(1rem + 1vw);
+            background-color: rgb(255, 237, 237);
+            font-family: "Helvetica Now Display", sans-serif;
+        }
+        .header-navMobile{
+            font-family: "Helvetica Now Display", sans-serif;
+            width: 100%;
+            padding: calc(1rem + 1vw);
+            display: flex;
+            flex-direction: column;
+            row-gap: calc(1rem + 1vw);
+            align-items: center;
+            background-color: rgb(0, 0, 0);
+            a{
+                color: white;
+                font-family: inherit;
+            }
+        }
+        @media screen and (min-width: 976px) {
+            display: none;
+        }
+    }
+    .header-navOverlay.showNav{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: calc(0.8rem + 0.8vw);
+        height: 100%;
+        transform: translateY(0);
+        transition: height 200ms ease-in-out, transform 200ms ease-in-out;
+        
+    }
+}
