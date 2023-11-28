@@ -17,8 +17,15 @@ import Advisor1 from "../Assets/images/homePage/Advisor1.png"
 import Advisor2 from "../Assets/images/homePage/Advisor2.png"
 import Advisor3 from "../Assets/images/homePage/Advisor3.png"
 import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
-// import { FaArrowCircleRight } from "react-icons/fa";
-
+import Partner1 from "../Assets/images/homePage/Partner1.png"
+import Partner2 from "../Assets/images/homePage/Partner2.png"
+import Partner3 from "../Assets/images/homePage/Partner3.png"
+import Partner4 from "../Assets/images/homePage/Partner4.png"
+import Partner5 from "../Assets/images/homePage/Partner5.png"
+import Suggestion1 from "../Assets/images/homePage/Suggestion1.png";
+import Suggestion2 from "../Assets/images/homePage/Suggestion2.png";
+import Suggestion3 from "../Assets/images/homePage/Suggestion3.png";
+import VictorySign from "../Assets/images/homePage/VictorySign.png";
 
 
 const HomePage: FC = () => {
@@ -93,50 +100,152 @@ const HomePage: FC = () => {
 
 
       <div className="homePage-advisorPhoto-div">
-          <div className="homePage-advisorPhoto-wrapper">
-            <div className="homePage-advisorPhoto-box1">
-              
-              <img src={Advisor1} className="advisor-img" alt="advisor" />
-            
-              <div className="homePage-advisorPhoto-detail">
-                <h2>Doug Bouton</h2>
-                <p>Co-founder of Halo Top</p>
-              </div>
-              <div className="homePage-arrow-div">
-                <FaArrowCircleLeft />
-                <FaArrowCircleRight />
-              </div>
+        <div className="homePage-advisorPhoto-wrapper">
+          <div className="homePage-advisorPhoto-box1">
+            <img src={Advisor1} className="advisor-img" alt="advisor" />
+            <div className="homePage-advisorPhoto-detail">
+              <h2>Doug Bouton</h2>
+              <p>Co-founder of Halo Top</p>
             </div>
-            <div className="homePage-advisorPhoto-box2">
-              <img src={Advisor2} className="advisor-img" alt="advisor" />
-              <div className="homePage-advisorPhoto-detail">
-                <h2>Christina Alexandre Drake</h2>
-                <p>National Team Specialist of Parker Ltd</p>
-              </div>
-            </div>
-            <div className="homePage-advisorPhoto-box3">
-              <img src={Advisor3} className="advisor-img" alt="advisor" />
-              
-              <div className="homePage-advisorPhoto-detail">
-                <h2>Oskar Fischer</h2>
-                <p>Product Solutions Manager of Abbott, 
-                  Kemmer and Powlowski</p>
-              </div>
+            <div className="homePage-arrow-div">
+              <FaArrowCircleLeft />
+              <FaArrowCircleRight />
             </div>
           </div>
-      </div>
-
-        <div className="homePage-partnerBrand-slide">
-          <div className="homePage-partnerBrand-slideWrapper">
-            <img src="" alt="" />
-            <img src="" alt="" />
-            <img src="" alt="" />
-            <img src="" alt="" />
-            <img src="" alt="" />
+          <div className="homePage-advisorPhoto-box2">
+            <img src={Advisor2} className="advisor-img" alt="advisor" />
+            <div className="homePage-advisorPhoto-detail">
+              <h2>Christina Alexandre Drake</h2>
+              <p>National Team Specialist of Parker Ltd</p>
+            </div>
+          </div>
+          <div className="homePage-advisorPhoto-box3">
+            <img src={Advisor3} className="advisor-img" alt="advisor" />
+            <div className="homePage-advisorPhoto-detail">
+              <h2>Oskar Fischer</h2>
+              <p>Product Solutions Manager of Abbott, 
+                  Kemmer and Powlowski</p>
+            </div>
           </div>
         </div>
+      </div>
 
+      <div className="homePage-partnerBrand-slide">
+        <div className="homePage-partnerBrand-slideWrapper">
+          <div>
+            <img src={Partner1} alt="Partner1" />
+          </div>
+          <div>
+            <img src={Partner2} alt="Partner2" />
+          </div>
+          <div>
+            <img src={Partner3} alt="Partner3" />
+          </div>
+          <div>
+            <img src={Partner4} alt="Partner4" />
+          </div>
+          <div>
+            <img src={Partner5} alt="Partner5" />
+          </div>
+          <div>
+            <img src={Partner1} alt="Partner1" />
+          </div>
+          <div>
+            <img src={Partner2} alt="Partner2" />
+          </div>
+          <div>
+            <img src={Partner3} alt="Partner3" />
+          </div>
+          <div>
+            <img src={Partner4} alt="Partner4" />
+          </div>
+          <div>
+            <img src={Partner5} alt="Partner5" />
+          </div>
+          <div>
+            <img src={Partner1} alt="Partner1" />
+          </div>
+          <div>
+            <img src={Partner2} alt="Partner2" />
+          </div>
+          <div>
+            <img src={Partner3} alt="Partner3" />
+          </div>
+          <div>
+            <img src={Partner4} alt="Partner4" />
+          </div>
+          <div>
+            <img src={Partner5} alt="Partner5" />
+          </div>
+          <div>
+            <img src={Partner1} alt="Partner1" />
+          </div>
+          <div>
+            <img src={Partner2} alt="Partner2" />
+          </div>
+          <div>
+            <img src={Partner3} alt="Partner3" />
+          </div>
+          <div>
+            <img src={Partner4} alt="Partner4" />
+          </div>
+          <div>
+            <img src={Partner5} alt="Partner5" />
+          </div>
+        </div>
+      </div>
+      <div className="homePage-suggestion-div">
+        <div className="homePage-suggestion-boxes">
+          <div className="homePage-suggestion-box1">
+            <img src={Suggestion1} alt="Suggestion1" className='homePage-suggestion-img1' />
+            <p>Mentorship</p>
+          </div>
+          <div className="homePage-suggestion-box2">
+            <img src={Suggestion2} alt="Suggestion2" className='homePage-suggestion-img2' />
+            <p>Invite to Quarterly Dinners</p>
+          </div>
+          <div className="homePage-suggestion-box3">
+            <img src={Suggestion3} alt="Suggestion3" className='homePage-suggestion-img3' />
+            <p>Access to Deal Flow</p>
+          </div>
+        </div>
+        <div className="homePage-suggestion-end">
+          <div className="homePage-suggestion-endHeadline">
+            Get in on our deals
+          </div>
+          <div className="homePage-suggestion-endDetails">
+          <p>Apply to be an LP in our investment club.</p>
+          <p>Minimum checks are <span>$5k</span> and you don’t 
+          need to be accredited.</p>
+          <p>Because these deals are too sweet to gate-keep.</p>
+          </div>
 
+          <div className="homePage-modal-div">
+            <div className='homePage-modalwrapper'>
+              <div>APPLY NOW</div>
+              <img src={cursorPointer} alt="cursor-pointer" />
+              <div>APPLY NOW</div>
+              <img src={cursorPointer} alt="cursor-pointer" />
+              <div>APPLY NOW</div>
+              <img src={cursorPointer} alt="cursor-pointer" />
+              <div>APPLY NOW</div>
+              <img src={cursorPointer} alt="cursor-pointer" />
+              <div>APPLY NOW</div>
+              <img src={cursorPointer} alt="cursor-pointer" />
+              <div>APPLY NOW</div>
+              <img src={cursorPointer} alt="cursor-pointer" />
+              <div>APPLY NOW</div>
+              <img src={cursorPointer} alt="cursor-pointer" />
+              <div>APPLY NOW</div>
+              <img src={cursorPointer} alt="cursor-pointer" />
+              <div>APPLY NOW</div>
+              <img src={cursorPointer} alt="cursor-pointer" />
+            </div>
+          </div>
+          <img src={VictorySign} alt="VictorySign" 
+          className='homePage-suggestion-VictorySign-img' />
+        </div>
+      </div>
     </div>
     </>
   )

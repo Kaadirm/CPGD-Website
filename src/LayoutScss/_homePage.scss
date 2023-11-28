@@ -336,8 +336,225 @@
             }
         }
     }
+    .homePage-partnerBrand-slide{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        padding: calc(0.8rem + 1.2vw) 0;
+        border-left: 4px solid #000000;
+        border-right: 4px solid #000000;
+        border-bottom: 4px solid #000000;
+        position: relative;
+        overflow: hidden;
+        .homePage-partnerBrand-slideWrapper{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            animation: move-lft-brand 15s linear infinite;
+            column-gap: calc(1.5rem + 5vw);
+            position: relative;
+            div{
+                display: flex;
+                align-items: center;
+                flex-wrap: nowrap;
+            }
+            img{
+                width: calc(2rem + 8vw);
+                color: white;
+            }
+        }
+    }
+    .homePage-suggestion-div{
+        position: relative;
+        .homePage-suggestion-boxes{
+            display: grid;
+            width: 100%;
+            grid-template-columns: 1fr 1fr 1fr;
+            padding-top: calc(1rem + 10vw);
+            border-left: 4px solid #000000;
+            border-right: 4px solid #000000;
+            border-bottom: 4px solid #000000;
+            div{
+                border-top: 4px solid #000000;
+                position: relative;
+                aspect-ratio: 100 / 70.6;
+                display: flex;
+                align-items: end;
+                justify-content: center;
+                text-align: center;
+                padding-bottom: 5%;
+                @media screen and (max-width: 768px) {
+                padding-bottom: 1%;
+                }
+                p{
+                    font-family: 'Helvetica Now Display', sans-serif;
+                    font-size: calc(0.25rem + 1.4vw);
+                    font-weight: 800;
+                    @media screen and (max-width: 768px) {
+                        font-size: calc(0.15rem + 1.5vw);
+                    }
+                }
+                .homePage-suggestion-img1{
+                    position: absolute;
+                    top: -14.75%;
+                    left: 20.5%;
+                    width: 59%;
+                }
+                .homePage-suggestion-img2{
+                    position: absolute;
+                    top: -15%;
+                    left: 28.75%;
+                    width: 42.5%;
+                }
+                .homePage-suggestion-img3{
+                    position: absolute;
+                    top: -16%;
+                    left: 38.4%;
+                    width: 23.2%;
+                }
+            }
+            .homePage-suggestion-box1{
+                border-right: 4px solid #000000;
+            }
+            .homePage-suggestion-box2{
+                border-right: 4px solid #000000;
+            }
+        }
+
+
+        .homePage-suggestion-end{
+            padding-top: calc(0.75rem + 5vw);
+            font-family: 'Helvetica Now Display', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            row-gap: calc(0.5rem + 1.5vw);
+            width: 100%;
+            border-left: 4px solid #000000;
+            border-right: 4px solid #000000;
+            .homePage-suggestion-endHeadline{
+                font-size: calc(0.5rem + 9.5vw);
+                font-weight: 700;
+                @media screen and (max-width: 550px){
+                    font-size: calc(0.25rem + 9vw);
+                }
+            }
+            .homePage-suggestion-endDetails{
+                width: 60%;
+                padding-right: 2.5%;
+                align-self: end;
+                font-size: calc(0.25rem + 1.4vw);
+                line-height: calc(0.5rem + 2.5vw);
+                font-weight: 600;
+                @media screen and (max-width: 768px) {
+                    font-size: calc(0.15rem + 1.5vw);
+                }
+                p{
+                    span{
+                        font-size: calc(0.25rem + 2vw);
+                        font-weight: 800;
+                        @media screen and (max-width: 768px) {
+                        font-size: calc(0.15rem + 2vw);
+                        }
+                    }
+                }    
+            }
+        
+            .homePage-modal-div{
+                position: relative;
+                z-index: 7;
+                width: 100%;
+                border-top: 4px solid #000000;
+                border-bottom: 4px solid #000000;
+                padding: calc(0.6rem + 0.6vw) 0;
+                background-color: rgb(249, 191, 187);
+                color: rgb(242, 90, 65);
+                font-weight: 800;
+                font-family: 'Helvetica Now Display', sans-serif;
+                font-size: calc(0.75rem + 1.75vw);
+                white-space: nowrap;
+                overflow: hidden;
+                .homePage-modalwrapper{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    animation: move-lft-modal 8000ms linear infinite;
+                    @media screen and (max-width: 767px) {
+                        animation: move-lft-modal 4000ms linear infinite;
+                    }
+                    column-gap: calc(1rem + 2.5vw);
+                    div{
+                        display: flex;
+                        align-items: center;
+                        flex-wrap: nowrap;
+                    }
+                    img{
+                        width: calc(0.4rem + 0.75vw);
+                        color: white;
+                    }
+                }
+            }
+            .homePage-modal-div:hover{
+                color: white;
+                background-color: rgb(242, 90, 65);
+                cursor: pointer;
+            }
+            .homePage-modal-div:hover .homePage-modalwrapper{
+                animation-play-state: paused;
+            }
+
+
+
+
+
+
+        }
+        
+
+
+        
+
+
+
+        .homePage-suggestion-VictorySign-img{
+            position: absolute;
+            width: calc(3rem + 13vw);
+            bottom: 0;
+            left: 7.5%;
+            z-index: 8;
+        }
+
+
+    }
+
+
+
 }
 
+// Linear gradient for Brand Slider
+
+.homePage-partnerBrand-slide::before{
+    width: 15%;
+    height: 100%;
+    background: linear-gradient(to left, rgb(255, 255, 255, 0), rgb(254, 247, 236));
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+.homePage-partnerBrand-slide::after{
+    width: 15%;
+    height: 100%;
+    background: linear-gradient(to right, rgb(255, 255, 255, 0), rgb(254, 247, 236));
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+}
+
+//Animatons for Brand and Modal sliding
 
 @keyframes move-lft-modal {
     from{
@@ -347,5 +564,14 @@
         transform: translateX(-100%);
     }
 }
+@keyframes move-lft-brand {
+    from{
+        transform: translate(0);
+    }
+    to{
+        transform: translateX(-30%);
+    }
+}
+
 
 
