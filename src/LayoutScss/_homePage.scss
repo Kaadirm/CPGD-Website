@@ -2,6 +2,8 @@
     box-sizing: border-box;
     background-color: rgb(254, 247, 236);
     
+    //Main Frame CSS
+
     .homePage-mainFrame{
         position: relative;
         padding-top: calc(2.5rem + 2.5vw);
@@ -12,6 +14,8 @@
         align-items: center;
         row-gap: calc(2.5rem + 2.5vw);
         .homePage-companyHeadline{
+            position: relative;
+            z-index: 7;
             padding-bottom: 10%;
             width: calc(6rem + 40vw);
             margin: 0 auto;
@@ -19,6 +23,9 @@
             flex-direction: column;
             align-items: center;
             row-gap: calc(2.5rem + 2.5vw);
+            @media screen and (max-width: 975px) {
+                padding-bottom: 15%
+            }
             img{
                 width: calc(8rem + 33vw);
             }
@@ -37,37 +44,44 @@
                 width: 94%;
             }
         }
-        //Images goes here
+
+        //Images Css in Main Frame
         .homePage-img-div{
             box-sizing: border-box;
             width: 100%;
             .flower1{
-                width: calc(3.75rem + 10vw);
+                width: calc(3.25rem + 10.5vw);
                 position: absolute;
                 bottom: calc(1.7rem + 1.70vw);
                 z-index: 6;
-                left: calc(1.25rem + 2.5vw)
+                left: calc(0.75rem + 2.25vw)
             }
             .flower2{
                 
-                width: calc(2.5rem + 8vw);
+                width: calc(2rem + 8.5vw);
                 position: absolute;
                 bottom: 1.35rem;
                 z-index: 6;
-                left: calc(3.5rem + 17vw)
+                left: calc(3rem + 17vw)
             }
             .flower3{
-                width: calc(5rem + 16vw);
+                width: calc(4rem + 16.5vw);
                 position: absolute;
                 bottom: 0;
                 z-index: 6;
                 right: 1.5vw
             }
             .cloud1{
-                width: 22.5%;
+                position: absolute;
+                width: calc(3.5rem + 18vw);
+                bottom: calc(1.5rem + 8vw);
+                left: calc(0.5rem + 2vw);
             }
             .cloud2{
-                width: 22.5%;
+                position: absolute;
+                width: calc(3.5rem + 18vw);
+                left: 44%;
+                bottom: calc(1.5rem + 3.5vw);
             }
             .mountain2{
                 width: calc(6rem + 45vw);
@@ -94,26 +108,244 @@
             border-top: 4px solid #000000;
             border-bottom: 4px solid #000000;
             padding: calc(0.6rem + 0.6vw) 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
             background-color: rgb(249, 191, 187);
             color: rgb(242, 90, 65);
             font-weight: 800;
             font-family: 'Helvetica Now Display', sans-serif;
             font-size: calc(0.75rem + 1.75vw);
-            img{
-                width: calc(0.4rem + 0.75vw);
-                color: white;
+            white-space: nowrap;
+            overflow: hidden;
+            .homePage-modalwrapper{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                animation: move-lft-modal 8000ms linear infinite;
+                @media screen and (max-width: 767px) {
+                    animation: move-lft-modal 4000ms linear infinite;
+                }
+                column-gap: calc(1rem + 2.5vw);
+                div{
+                    display: flex;
+                    align-items: center;
+                    flex-wrap: nowrap;
+                }
+                img{
+                    width: calc(0.4rem + 0.75vw);
+                    color: white;
+                }
+            }
+        }
+        .homePage-modal-div:hover{
+            color: white;
+            background-color: rgb(242, 90, 65);
+            cursor: pointer;
+        }
+        .homePage-modal-div:hover .homePage-modalwrapper{
+            animation-play-state: paused;
+        }
+    }
+
+    .homePage-dealFrame{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-left: 4px solid #000000;
+        border-right: 4px solid #000000;
+        row-gap: calc(2rem + 2vw);
+        padding: calc(1rem + 5vw);
+        text-align: center;
+        font-family: 'Helvetica Now Display', sans-serif;
+        @media screen and (max-width: 620px) {
+            padding: calc(1rem + 5vw) 2vw;
+        }
+        .homePage-dealHeadline{
+            font-size: calc(1rem + 3vw);
+            font-weight: 700;
+        }
+        .homePage-dealParagraph{
+            font-size: calc(1rem + 1vw);
+            font-weight: 600;
+            line-height: calc(1.5rem + 2.5vw);
+            span{
+                font-size: calc(1rem + 3vw);
+                font-weight: 700;
+            }
+        }
+        .homePage-dealExp{
+            font-size: calc(1rem + 1vw)
+        }
+        .homePage-dealImage-div{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 80%;
+            @media screen and (max-width: 620px) {
+                width: 100%;
+            }
+            .brand1{
+                width: calc(2rem + 6vw);
+            }
+            .brand2{
+                width: calc(2rem + 10vw);
+            }
+            .brand3{
+                width: calc(2rem + 8vw) ;
+            }
+            .brand4{
+                width: calc(2rem + 8vw) 
+            }
+        }
+    };
+
+    .homePage-partnerFrame{
+        border-top: 4px solid #000000;
+        border-left: 4px solid #000000;
+        border-right: 4px solid #000000;
+        .homePage-partnerHeadBox{
+            position: relative;
+            width: 100%;
+            padding-top: calc(0.25rem + 3vw);
+            padding-bottom: calc(0.25rem + 3vw);
+            padding-right: calc(2rem + 4vw);
+            display: flex;
+            justify-content: end;
+            font-family: 'Helvetica Now Display', sans-serif;
+            @media screen and (max-width:550px ) {
+                padding-right: calc(0.1rem + 2vw);
+            }
+            .brain-logo{
+                position: absolute;
+                width: calc(3rem + 17vw);
+                bottom: calc(-0.35rem + -1.5vw);
+                left: calc(0.25rem + 1vw);
+            }
+            .homePage-partnerHeadline{
+                display: flex;
+                flex-direction: column;
+                gap: calc(0.4rem + 0.4vw);
+                div{
+                    font-size: calc(0.4rem + 2.7vw);
+                    font-weight: 700;
+                }
+                p{
+                    font-size: calc(0.2rem + 1.1vw);
+                    font-weight: 600;
+                }
             }
         }
     }
-    
+
+
+    .homePage-advisorPhoto-div{
+        padding: calc(2rem + 5vw) 0;
+        border-left: 4px solid #000000;
+        outline: 4px solid #000000;
+        outline-offset: -0.2rem;
+        overflow: hidden;
+        .homePage-advisorPhoto-wrapper{
+            display: flex;
+            column-gap: calc(1rem + 2vw);
+            justify-content: end;
+            transform: translateX(1%);
+            .homePage-advisorPhoto-box1{
+                display: flex;
+                flex-direction: column;
+                .homePage-arrow-div{
+                    padding-top: calc(1rem + 1vw);
+                    display: flex;
+                    column-gap: calc(0.3rem + 1vw);
+                    font-size: calc(0.5rem + 2vw);
+                    svg{
+                        border: 1px solid black;
+                        border-radius: 50%;
+                        background-color: black;
+                        color: rgb(254, 247, 236);
+                    }
+                    svg:hover{
+                        cursor: pointer;
+                    }
+                    svg:active{
+                        color: white;
+                        font-size: calc(0.55rem + 2.1vw);
+                    }
+                }
+            
+                //Arrows will actively changing photos
+
+            }
+            .homePage-advisorPhoto-box2{
+                display: flex;
+                flex-direction: column;
+                
+            }
+            .homePage-advisorPhoto-box3{
+                display: flex;
+                flex-direction: column;
+            }
+            .advisor-img{
+                width: calc(27vw);
+                aspect-ratio: 100/93;
+                border-radius: 70% 70% 0 0;
+                border: 4px solid #000000;
+            }
+            .homePage-advisorPhoto-detail{
+                font-family: 'Helvetica Now Display', sans-serif;
+                width: calc(27vw);
+                aspect-ratio: 100/ 50.5;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: calc(0.5rem + 2vw) 0;
+                row-gap: calc(0.5rem + 2vw);
+                border-bottom: 4px solid #000000;
+                border-right: 4px solid #000000;
+                border-left: 4px solid #000000;
+                background-color: rgb(252, 238, 237);
+                @media screen and (max-width: 975px) {
+                    justify-content: center;
+                    padding: calc(0.25rem + 1vw) 0;
+                    row-gap: calc(0.25rem + 1vw);
+                }
+                @media screen and (max-width: 400px) {
+                    padding: calc(0.1rem + 0.1vw) 0;
+                    row-gap: calc(0.1rem + 0.1vw);
+                    aspect-ratio: 100/ 70;
+                    h2{
+                        font-size: calc(0.4rem)
+                    }
+                    p{
+                        font-size: calc(0.2rem);
+                        line-height: 1px;
+                    }
+                }
+                h2{
+                    font-weight: 600;
+                    font-size: calc(0.2rem + 1.25vw);
+                    text-align: center;
+                    
+                }
+                p{
+                    width: 70%;
+                    text-align: center;
+                    font-size: calc(0.2rem + 0.9vw);
+                    line-height: calc(0.25rem + 1vw);
+                    @media screen and (max-width: 975px) {
+                        width: 95%;
+                    }
+                }
+            }
+        }
+    }
 }
 
 
-
-.myImg{
-    max-width: 200px;
-    max-height: 200px;
+@keyframes move-lft-modal {
+    from{
+        transform: translate(0);
+    }
+    to{
+        transform: translateX(-100%);
+    }
 }
+
+

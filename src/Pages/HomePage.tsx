@@ -16,6 +16,10 @@ import Brain from "../Assets/images/homePage/Brain.png";
 import Advisor1 from "../Assets/images/homePage/Advisor1.png"
 import Advisor2 from "../Assets/images/homePage/Advisor2.png"
 import Advisor3 from "../Assets/images/homePage/Advisor3.png"
+import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
+// import { FaArrowCircleRight } from "react-icons/fa";
+
+
 
 const HomePage: FC = () => {
   return (
@@ -89,33 +93,37 @@ const HomePage: FC = () => {
 
 
       <div className="homePage-advisorPhoto-div">
-        <div className="homePage-advisorPhoto-wrapper">
-          <div className="homePage-advisorPhoto-box1">
+          <div className="homePage-advisorPhoto-wrapper">
+            <div className="homePage-advisorPhoto-box1">
+              
+              <img src={Advisor1} className="advisor-img" alt="advisor" />
             
-            <img src={Advisor1} className="advisor-img" alt="advisor-photo" />
-           
-            <div className="homePage-advisorPhoto-detail">
-              <h2>Doug Bouton</h2>
-              <p>Co-founder of Halo Top</p>
+              <div className="homePage-advisorPhoto-detail">
+                <h2>Doug Bouton</h2>
+                <p>Co-founder of Halo Top</p>
+              </div>
+              <div className="homePage-arrow-div">
+                <FaArrowCircleLeft />
+                <FaArrowCircleRight />
+              </div>
+            </div>
+            <div className="homePage-advisorPhoto-box2">
+              <img src={Advisor2} className="advisor-img" alt="advisor" />
+              <div className="homePage-advisorPhoto-detail">
+                <h2>Christina Alexandre Drake</h2>
+                <p>National Team Specialist of Parker Ltd</p>
+              </div>
+            </div>
+            <div className="homePage-advisorPhoto-box3">
+              <img src={Advisor3} className="advisor-img" alt="advisor" />
+              
+              <div className="homePage-advisorPhoto-detail">
+                <h2>Oskar Fischer</h2>
+                <p>Product Solutions Manager of Abbott, 
+                  Kemmer and Powlowski</p>
+              </div>
             </div>
           </div>
-          <div className="homePage-advisorPhoto-box2">
-            <img src={Advisor2} className="advisor-img" alt="advisor-photo" />
-            <div className="homePage-advisorPhoto-detail">
-              <h2>Christina Alexandre Drake</h2>
-              <p>National Team Specialist of Parker Ltd</p>
-            </div>
-          </div>
-          <div className="homePage-advisorPhoto-box3">
-            <img src={Advisor3} className="advisor-img" alt="advisor-photo" />
-            
-            <div className="homePage-advisorPhoto-detail">
-              <h2>Oskar Fischer</h2>
-              <p>Product Solutions Manager of Abbott, 
-                Kemmer and Powlowski</p>
-            </div>
-          </div> 
-        </div>
       </div>
 
         <div className="homePage-partnerBrand-slide">

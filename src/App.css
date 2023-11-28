@@ -316,6 +316,8 @@ a {
   row-gap: calc(2.5rem + 2.5vw);
 }
 .homePage-container .homePage-mainFrame .homePage-companyHeadline {
+  position: relative;
+  z-index: 7;
   padding-bottom: 10%;
   width: calc(6rem + 40vw);
   margin: 0 auto;
@@ -323,6 +325,11 @@ a {
   flex-direction: column;
   align-items: center;
   row-gap: calc(2.5rem + 2.5vw);
+}
+@media screen and (max-width: 975px) {
+  .homePage-container .homePage-mainFrame .homePage-companyHeadline {
+    padding-bottom: 15%;
+  }
 }
 .homePage-container .homePage-mainFrame .homePage-companyHeadline img {
   width: calc(8rem + 33vw);
@@ -347,31 +354,37 @@ a {
   width: 100%;
 }
 .homePage-container .homePage-mainFrame .homePage-img-div .flower1 {
-  width: calc(3.75rem + 10vw);
+  width: calc(3.25rem + 10.5vw);
   position: absolute;
   bottom: calc(1.7rem + 1.7vw);
   z-index: 6;
-  left: calc(1.25rem + 2.5vw);
+  left: calc(0.75rem + 2.25vw);
 }
 .homePage-container .homePage-mainFrame .homePage-img-div .flower2 {
-  width: calc(2.5rem + 8vw);
+  width: calc(2rem + 8.5vw);
   position: absolute;
   bottom: 1.35rem;
   z-index: 6;
-  left: calc(3.5rem + 17vw);
+  left: calc(3rem + 17vw);
 }
 .homePage-container .homePage-mainFrame .homePage-img-div .flower3 {
-  width: calc(5rem + 16vw);
+  width: calc(4rem + 16.5vw);
   position: absolute;
   bottom: 0;
   z-index: 6;
   right: 1.5vw;
 }
 .homePage-container .homePage-mainFrame .homePage-img-div .cloud1 {
-  width: 22.5%;
+  position: absolute;
+  width: calc(3.5rem + 18vw);
+  bottom: calc(1.5rem + 8vw);
+  left: calc(0.5rem + 2vw);
 }
 .homePage-container .homePage-mainFrame .homePage-img-div .cloud2 {
-  width: 22.5%;
+  position: absolute;
+  width: calc(3.5rem + 18vw);
+  left: 44%;
+  bottom: calc(1.5rem + 3.5vw);
 }
 .homePage-container .homePage-mainFrame .homePage-img-div .mountain2 {
   width: calc(6rem + 45vw);
@@ -394,25 +407,250 @@ a {
   border-top: 4px solid #000000;
   border-bottom: 4px solid #000000;
   padding: calc(0.6rem + 0.6vw) 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   background-color: rgb(249, 191, 187);
   color: rgb(242, 90, 65);
   font-weight: 800;
   font-family: "Helvetica Now Display", sans-serif;
   font-size: calc(0.75rem + 1.75vw);
+  white-space: nowrap;
+  overflow: hidden;
 }
-.homePage-container .homePage-mainFrame .homePage-modal-div img {
+.homePage-container .homePage-mainFrame .homePage-modal-div .homePage-modalwrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  animation: move-lft-modal 8000ms linear infinite;
+  -moz-column-gap: calc(1rem + 2.5vw);
+       column-gap: calc(1rem + 2.5vw);
+}
+@media screen and (max-width: 767px) {
+  .homePage-container .homePage-mainFrame .homePage-modal-div .homePage-modalwrapper {
+    animation: move-lft-modal 4000ms linear infinite;
+  }
+}
+.homePage-container .homePage-mainFrame .homePage-modal-div .homePage-modalwrapper div {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.homePage-container .homePage-mainFrame .homePage-modal-div .homePage-modalwrapper img {
   width: calc(0.4rem + 0.75vw);
   color: white;
 }
-
-.myImg {
-  max-width: 200px;
-  max-height: 200px;
+.homePage-container .homePage-mainFrame .homePage-modal-div:hover {
+  color: white;
+  background-color: rgb(242, 90, 65);
+  cursor: pointer;
+}
+.homePage-container .homePage-mainFrame .homePage-modal-div:hover .homePage-modalwrapper {
+  animation-play-state: paused;
+}
+.homePage-container .homePage-dealFrame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-left: 4px solid #000000;
+  border-right: 4px solid #000000;
+  row-gap: calc(2rem + 2vw);
+  padding: calc(1rem + 5vw);
+  text-align: center;
+  font-family: "Helvetica Now Display", sans-serif;
+}
+@media screen and (max-width: 620px) {
+  .homePage-container .homePage-dealFrame {
+    padding: calc(1rem + 5vw) 2vw;
+  }
+}
+.homePage-container .homePage-dealFrame .homePage-dealHeadline {
+  font-size: calc(1rem + 3vw);
+  font-weight: 700;
+}
+.homePage-container .homePage-dealFrame .homePage-dealParagraph {
+  font-size: calc(1rem + 1vw);
+  font-weight: 600;
+  line-height: calc(1.5rem + 2.5vw);
+}
+.homePage-container .homePage-dealFrame .homePage-dealParagraph span {
+  font-size: calc(1rem + 3vw);
+  font-weight: 700;
+}
+.homePage-container .homePage-dealFrame .homePage-dealExp {
+  font-size: calc(1rem + 1vw);
+}
+.homePage-container .homePage-dealFrame .homePage-dealImage-div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+}
+@media screen and (max-width: 620px) {
+  .homePage-container .homePage-dealFrame .homePage-dealImage-div {
+    width: 100%;
+  }
+}
+.homePage-container .homePage-dealFrame .homePage-dealImage-div .brand1 {
+  width: calc(2rem + 6vw);
+}
+.homePage-container .homePage-dealFrame .homePage-dealImage-div .brand2 {
+  width: calc(2rem + 10vw);
+}
+.homePage-container .homePage-dealFrame .homePage-dealImage-div .brand3 {
+  width: calc(2rem + 8vw);
+}
+.homePage-container .homePage-dealFrame .homePage-dealImage-div .brand4 {
+  width: calc(2rem + 8vw);
+}
+.homePage-container .homePage-partnerFrame {
+  border-top: 4px solid #000000;
+  border-left: 4px solid #000000;
+  border-right: 4px solid #000000;
+}
+.homePage-container .homePage-partnerFrame .homePage-partnerHeadBox {
+  position: relative;
+  width: 100%;
+  padding-top: calc(0.25rem + 3vw);
+  padding-bottom: calc(0.25rem + 3vw);
+  padding-right: calc(2rem + 4vw);
+  display: flex;
+  justify-content: end;
+  font-family: "Helvetica Now Display", sans-serif;
+}
+@media screen and (max-width: 550px) {
+  .homePage-container .homePage-partnerFrame .homePage-partnerHeadBox {
+    padding-right: calc(0.1rem + 2vw);
+  }
+}
+.homePage-container .homePage-partnerFrame .homePage-partnerHeadBox .brain-logo {
+  position: absolute;
+  width: calc(3rem + 17vw);
+  bottom: calc(-0.35rem - 1.5vw);
+  left: calc(0.25rem + 1vw);
+}
+.homePage-container .homePage-partnerFrame .homePage-partnerHeadBox .homePage-partnerHeadline {
+  display: flex;
+  flex-direction: column;
+  gap: calc(0.4rem + 0.4vw);
+}
+.homePage-container .homePage-partnerFrame .homePage-partnerHeadBox .homePage-partnerHeadline div {
+  font-size: calc(0.4rem + 2.7vw);
+  font-weight: 700;
+}
+.homePage-container .homePage-partnerFrame .homePage-partnerHeadBox .homePage-partnerHeadline p {
+  font-size: calc(0.2rem + 1.1vw);
+  font-weight: 600;
+}
+.homePage-container .homePage-advisorPhoto-div {
+  padding: calc(2rem + 5vw) 0;
+  border-left: 4px solid #000000;
+  outline: 4px solid #000000;
+  outline-offset: -0.2rem;
+  overflow: hidden;
+}
+.homePage-container .homePage-advisorPhoto-div .homePage-advisorPhoto-wrapper {
+  display: flex;
+  -moz-column-gap: calc(1rem + 2vw);
+       column-gap: calc(1rem + 2vw);
+  justify-content: end;
+  transform: translateX(1%);
+}
+.homePage-container .homePage-advisorPhoto-div .homePage-advisorPhoto-wrapper .homePage-advisorPhoto-box1 {
+  display: flex;
+  flex-direction: column;
+}
+.homePage-container .homePage-advisorPhoto-div .homePage-advisorPhoto-wrapper .homePage-advisorPhoto-box1 .homePage-arrow-div {
+  padding-top: calc(1rem + 1vw);
+  display: flex;
+  -moz-column-gap: calc(0.3rem + 1vw);
+       column-gap: calc(0.3rem + 1vw);
+  font-size: calc(0.5rem + 2vw);
+}
+.homePage-container .homePage-advisorPhoto-div .homePage-advisorPhoto-wrapper .homePage-advisorPhoto-box1 .homePage-arrow-div svg {
+  border: 1px solid black;
+  border-radius: 50%;
+  background-color: black;
+  color: rgb(254, 247, 236);
+}
+.homePage-container .homePage-advisorPhoto-div .homePage-advisorPhoto-wrapper .homePage-advisorPhoto-box1 .homePage-arrow-div svg:hover {
+  cursor: pointer;
+}
+.homePage-container .homePage-advisorPhoto-div .homePage-advisorPhoto-wrapper .homePage-advisorPhoto-box1 .homePage-arrow-div svg:active {
+  color: white;
+  font-size: calc(0.55rem + 2.1vw);
+}
+.homePage-container .homePage-advisorPhoto-div .homePage-advisorPhoto-wrapper .homePage-advisorPhoto-box2 {
+  display: flex;
+  flex-direction: column;
+}
+.homePage-container .homePage-advisorPhoto-div .homePage-advisorPhoto-wrapper .homePage-advisorPhoto-box3 {
+  display: flex;
+  flex-direction: column;
+}
+.homePage-container .homePage-advisorPhoto-div .homePage-advisorPhoto-wrapper .advisor-img {
+  width: 27vw;
+  aspect-ratio: 100/93;
+  border-radius: 70% 70% 0 0;
+  border: 4px solid #000000;
+}
+.homePage-container .homePage-advisorPhoto-div .homePage-advisorPhoto-wrapper .homePage-advisorPhoto-detail {
+  font-family: "Helvetica Now Display", sans-serif;
+  width: 27vw;
+  aspect-ratio: 100/50.5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: calc(0.5rem + 2vw) 0;
+  row-gap: calc(0.5rem + 2vw);
+  border-bottom: 4px solid #000000;
+  border-right: 4px solid #000000;
+  border-left: 4px solid #000000;
+  background-color: rgb(252, 238, 237);
+}
+@media screen and (max-width: 975px) {
+  .homePage-container .homePage-advisorPhoto-div .homePage-advisorPhoto-wrapper .homePage-advisorPhoto-detail {
+    justify-content: center;
+    padding: calc(0.25rem + 1vw) 0;
+    row-gap: calc(0.25rem + 1vw);
+  }
+}
+@media screen and (max-width: 400px) {
+  .homePage-container .homePage-advisorPhoto-div .homePage-advisorPhoto-wrapper .homePage-advisorPhoto-detail {
+    padding: calc(0.1rem + 0.1vw) 0;
+    row-gap: calc(0.1rem + 0.1vw);
+    aspect-ratio: 100/70;
+  }
+  .homePage-container .homePage-advisorPhoto-div .homePage-advisorPhoto-wrapper .homePage-advisorPhoto-detail h2 {
+    font-size: 0.4rem;
+  }
+  .homePage-container .homePage-advisorPhoto-div .homePage-advisorPhoto-wrapper .homePage-advisorPhoto-detail p {
+    font-size: 0.2rem;
+    line-height: 1px;
+  }
+}
+.homePage-container .homePage-advisorPhoto-div .homePage-advisorPhoto-wrapper .homePage-advisorPhoto-detail h2 {
+  font-weight: 600;
+  font-size: calc(0.2rem + 1.25vw);
+  text-align: center;
+}
+.homePage-container .homePage-advisorPhoto-div .homePage-advisorPhoto-wrapper .homePage-advisorPhoto-detail p {
+  width: 70%;
+  text-align: center;
+  font-size: calc(0.2rem + 0.9vw);
+  line-height: calc(0.25rem + 1vw);
+}
+@media screen and (max-width: 975px) {
+  .homePage-container .homePage-advisorPhoto-div .homePage-advisorPhoto-wrapper .homePage-advisorPhoto-detail p {
+    width: 95%;
+  }
 }
 
+@keyframes move-lft-modal {
+  from {
+    transform: translate(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
 .homePage-container {
   min-height: 200vh;
 }/*# sourceMappingURL=App.css.map */
