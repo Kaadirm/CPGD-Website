@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect, useRef, useState } from 'react'
 import CompanyLogo from "../Assets/images/homePage/CompanyLogo.png"
 import cursorPointer from "../Assets/images/homePage/cursorPointer.png"
 import Flower1 from "../Assets/images/homePage/Flower1.png"
@@ -13,9 +13,6 @@ import Brand2 from "../Assets/images/homePage/Brand2.png"
 import Brand3 from "../Assets/images/homePage/Brand3.png"
 import Brand4 from "../Assets/images/homePage/Brand4.png"
 import Brain from "../Assets/images/homePage/Brain.png";
-import Advisor1 from "../Assets/images/homePage/Advisor1.png"
-import Advisor2 from "../Assets/images/homePage/Advisor2.png"
-import Advisor3 from "../Assets/images/homePage/Advisor3.png"
 import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 import Partner1 from "../Assets/images/homePage/Partner1.png"
 import Partner2 from "../Assets/images/homePage/Partner2.png"
@@ -26,12 +23,92 @@ import Suggestion1 from "../Assets/images/homePage/Suggestion1.png";
 import Suggestion2 from "../Assets/images/homePage/Suggestion2.png";
 import Suggestion3 from "../Assets/images/homePage/Suggestion3.png";
 import VictorySign from "../Assets/images/homePage/VictorySign.png";
+import axios from 'axios'
+// Interfaces importing from module.ts
+import {Teams} from "../Components/Modules/module"
+import {Modal} from "../Components/Modules/module"
+
+
 
 
 const HomePage: FC = () => {
+  const [teams, setTeams] = useState<Teams[] | null>([])
+  const [error, setError] = useState<string | null>()
+  const [modalForm, setModalForm] = useState<Modal>({
+    name: "",
+    email: "" 
+  })
+  const popupForm = useRef<HTMLDivElement>(null)
+  const popupFormFrame = useRef<HTMLFormElement>(null)
+  const succesFormFrame = useRef<HTMLDivElement>(null)
+  const [popupFormMessage, setPopupFormMessage] = useState<string | null>()
+
+  
+  useEffect(() => {
+    axios.get("https://case.justdesignfx.com/team.php")
+      .then(response => {
+        setTeams(response.data)
+      })
+      .catch(error => {
+        setError(error)
+      })
+  },[])
+
+  const handleModalChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    const {name, value} = e.target
+    setModalForm(preObj => ({
+      ...preObj,
+      [name]: value
+    }))
+  }
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    axios.post('https://case.justdesignfx.com/form.php', modalForm)
+    .then(response => {
+      setPopupFormMessage(response.data.message)
+      if(response.data.success === true){
+        if(popupFormFrame.current){
+          popupFormFrame.current.style.display = "none";
+        }
+        if(succesFormFrame.current){
+          succesFormFrame.current.style.display = "flex"
+        }
+      }
+    })
+    .catch(error => {
+      setError(error);
+    })
+
+  }
+
+  const handleClickModalForm = ():void => {
+    if(succesFormFrame.current){
+      succesFormFrame.current.style.display = "none"
+    }
+    if(popupForm.current){
+      popupForm.current.style.display = "flex";
+    }
+    if(popupFormFrame.current){
+      popupFormFrame.current.style.display = "flex";
+    }
+    
+  }
+  const handleClosingTag = ():void => {
+    if(popupForm.current){
+      popupForm.current.style.display = "none";
+    }
+    setPopupFormMessage(null);
+    setModalForm({
+      name: "",
+      email: ""
+    })
+  }
+
   return (
     <>
     <div className="homePage-container">
+      
       <div className="homePage-mainFrame">
         <div className="homePage-companyHeadline">
           <img src={CompanyLogo} alt="Company-Logo" />
@@ -48,7 +125,7 @@ const HomePage: FC = () => {
           <img className='mountain2' src={Mountain2} alt="{Mountain-2}" />
           <img className='mountain1' src={Mountain1} alt="{Mountain-1}" />
         </div>
-        <div className="homePage-modal-div">
+        <div className="homePage-modal-div" onClick={handleClickModalForm}>
           <div className='homePage-modalwrapper'>
             <div>APPLY NOW</div>
             <img src={cursorPointer} alt="cursor-pointer" />
@@ -101,32 +178,20 @@ const HomePage: FC = () => {
 
       <div className="homePage-advisorPhoto-div">
         <div className="homePage-advisorPhoto-wrapper">
-          <div className="homePage-advisorPhoto-box1">
-            <img src={Advisor1} className="advisor-img" alt="advisor" />
+          {teams ?  teams.map(item => 
+          <div key={item.id} className="homePage-advisorPhoto-box1">
+            <img src={item.image} className="advisor-img" alt="advisor" />
             <div className="homePage-advisorPhoto-detail">
-              <h2>Doug Bouton</h2>
-              <p>Co-founder of Halo Top</p>
+              <h2>{item.name}</h2>
+              <p>{item.title}</p>
             </div>
+            {item.id === "1" ? 
             <div className="homePage-arrow-div">
               <FaArrowCircleLeft />
               <FaArrowCircleRight />
-            </div>
-          </div>
-          <div className="homePage-advisorPhoto-box2">
-            <img src={Advisor2} className="advisor-img" alt="advisor" />
-            <div className="homePage-advisorPhoto-detail">
-              <h2>Christina Alexandre Drake</h2>
-              <p>National Team Specialist of Parker Ltd</p>
-            </div>
-          </div>
-          <div className="homePage-advisorPhoto-box3">
-            <img src={Advisor3} className="advisor-img" alt="advisor" />
-            <div className="homePage-advisorPhoto-detail">
-              <h2>Oskar Fischer</h2>
-              <p>Product Solutions Manager of Abbott, 
-                  Kemmer and Powlowski</p>
-            </div>
-          </div>
+            </div> : "" }
+          </div>) : null}
+
         </div>
       </div>
 
@@ -196,9 +261,10 @@ const HomePage: FC = () => {
       </div>
       <div className="homePage-suggestion-div">
         <div className="homePage-suggestion-boxes">
+
           <div className="homePage-suggestion-box1">
-            <img src={Suggestion1} alt="Suggestion1" className='homePage-suggestion-img1' />
-            <p>Mentorship</p>
+              <img src={Suggestion1} alt="Suggestion1" className='homePage-suggestion-img1' />
+              <p>Mentorship</p>
           </div>
           <div className="homePage-suggestion-box2">
             <img src={Suggestion2} alt="Suggestion2" className='homePage-suggestion-img2' />
@@ -220,7 +286,7 @@ const HomePage: FC = () => {
           <p>Because these deals are too sweet to gate-keep.</p>
           </div>
 
-          <div className="homePage-modal-div">
+          <div className="homePage-modal-div" onClick={handleClickModalForm}>
             <div className='homePage-modalwrapper'>
               <div>APPLY NOW</div>
               <img src={cursorPointer} alt="cursor-pointer" />
@@ -244,6 +310,46 @@ const HomePage: FC = () => {
           </div>
           <img src={VictorySign} alt="VictorySign" 
           className='homePage-suggestion-VictorySign-img' />
+        </div>
+      </div>
+
+      <div ref={popupForm} className="homePage-modalForm-container">
+        <form ref={popupFormFrame} className="homePage-modalForm" onSubmit={handleSubmit}>
+              <div className="homePage-modalForm-headline">
+                APPLY NOW
+              </div>
+              <div className="homePage-modalForm-inputFrame">
+                <input type="text" name='name' 
+                placeholder='Name Surname'
+                value={modalForm.name}
+                onChange={handleModalChange} />
+                <input type="email" name='email'
+                placeholder='Email Address'
+                value={modalForm.email}
+                onChange={handleModalChange}/>
+                <button type='submit'>SEND</button>
+                {error !== null && 
+                <div className="error-div">{error}</div>}
+                {popupFormMessage && 
+                <div className="error-div">{popupFormMessage}</div>}
+              </div>
+        </form>   
+        <div ref={succesFormFrame} className="homePage-modalForm-success">
+          <div className='homePage-modalForm-successMain'>
+            <div className="homePage-modalForm-succesHeadline">
+              <h2>THANK YOU</h2>
+              {popupFormMessage && <p>{popupFormMessage}</p>}
+            </div>
+            <button onClick={handleClosingTag}>DONE</button>
+          </div>
+          <img src={VictorySign} alt="victory-sign" />
+        </div>
+        
+
+
+        {/* Closing Tag for modalForm and Succes */}
+        <div className="homePage-modalForm-closingTag" onClick={handleClosingTag}>
+          X
         </div>
       </div>
     </div>
