@@ -8,7 +8,6 @@ const Header:FC = () => {
   const toogleMenu = ():void => {
     setIsActive(!isActive)
   }
-  console.log(isActive);
   return (
     <>
     <div className="header-container">
