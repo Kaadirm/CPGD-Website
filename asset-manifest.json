@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/CPGD-Website/static/css/main.4645af0e.css",
-    "main.js": "/CPGD-Website/static/js/main.77504ac3.js",
+    "main.js": "/CPGD-Website/static/js/main.38843ca3.js",
     "static/media/Flower1.png": "/CPGD-Website/static/media/Flower1.e072cdd561f2062d3543.png",
     "static/media/Flower3.png": "/CPGD-Website/static/media/Flower3.ac57067d435b4f798b81.png",
     "static/media/Brain.png": "/CPGD-Website/static/media/Brain.78546c290c1af457f61a.png",
@@ -14,10 +14,10 @@
     "index.html": "/CPGD-Website/index.html",
     "static/media/redOval.svg": "/CPGD-Website/static/media/redOval.16a206f25a5e4763213bf3803fed170e.svg",
     "main.4645af0e.css.map": "/CPGD-Website/static/css/main.4645af0e.css.map",
-    "main.77504ac3.js.map": "/CPGD-Website/static/js/main.77504ac3.js.map"
+    "main.38843ca3.js.map": "/CPGD-Website/static/js/main.38843ca3.js.map"
   },
   "entrypoints": [
     "static/css/main.4645af0e.css",
-    "static/js/main.77504ac3.js"
+    "static/js/main.38843ca3.js"
   ]
 }
