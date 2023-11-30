@@ -1,19 +1,19 @@
 import './App.css';
 import React from 'react'
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { HashRouter, Routes, Route } from "react-router-dom"
 import HomePage from './Pages/HomePage';
 import Layout from './Components/Layout';
 
 const App = () => {
   return (
     <>
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Layout/>}>
           <Route index element={<HomePage />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
     </>
   );
 }
