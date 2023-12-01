@@ -100,7 +100,7 @@
             
         }
 
-
+        //Css for modal slides in mainFrame
         .homePage-modal-div{
             position: relative;
             z-index: 7;
@@ -144,7 +144,7 @@
             animation-play-state: paused;
         }
     }
-
+    //Css for dealFrame
     .homePage-dealFrame{
         display: flex;
         flex-direction: column;
@@ -196,7 +196,7 @@
             }
         }
     };
-
+    //Css for partnerFrame
     .homePage-partnerFrame{
         border-top: 4px solid #000000;
         border-left: 4px solid #000000;
@@ -234,8 +234,7 @@
             }
         }
     }
-
-
+    //Css for advisorPhoto-div
     .homePage-advisorPhoto-div{
         padding: calc(2rem + 5vw) 0;
         border-left: 4px solid #000000;
@@ -272,9 +271,6 @@
                         font-size: calc(0.55rem + 2.1vw);
                     }
                 }
-            
-                //Arrows will actively changing photos
-
             }
             .homePage-advisorPhoto-box2{
                 display: flex;
@@ -339,6 +335,7 @@
             }
         }
     }
+    //Css for partnerBrand-slide
     .homePage-partnerBrand-slide{
         width: 100%;
         display: flex;
@@ -367,6 +364,7 @@
             }
         }
     }
+    //CSS for suggestion-div
     .homePage-suggestion-div{
         position: relative;
         .homePage-suggestion-boxes{
@@ -424,7 +422,6 @@
             }
         }
 
-
         .homePage-suggestion-end{
             padding-top: calc(0.75rem + 5vw);
             font-family: 'Helvetica Now Display', sans-serif;
@@ -462,7 +459,7 @@
                     }
                 }    
             }
-        
+            
             .homePage-modal-div{
                 position: relative;
                 z-index: 7;
@@ -505,15 +502,7 @@
             .homePage-modal-div:hover .homePage-modalwrapper{
                 animation-play-state: paused;
             }
-
-
-
-
-
-
         }
-    
-
         .homePage-suggestion-VictorySign-img{
             position: absolute;
             width: calc(3rem + 13vw);
@@ -524,7 +513,7 @@
     }
 
 
-        //Modal Form
+        //CSS for Modal Form
 
         .homePage-modalForm-container{
             width: 100%;
@@ -544,7 +533,6 @@
                     top: 11%;
                 }
                 position: relative;
-                // display: flex;
                 display: none;
                 flex-direction: column;
                 justify-content: center;

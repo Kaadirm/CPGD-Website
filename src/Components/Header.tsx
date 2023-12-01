@@ -1,13 +1,32 @@
-import React, {useState, FC} from 'react'
+import React, {useState, FC, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import redOval from "../Assets/images/header/redOval.svg"
 import redVector from "../Assets/images/header/redVector.svg"
 
 const Header:FC = () => {
+          //Variables
+  //variable for closing and opening Hamburger Menu
   const [isActive, setIsActive] = useState<boolean>(false)
+  //Setting state on the contrary (close and open)
   const toogleMenu = ():void => {
     setIsActive(!isActive)
   }
+
+  //Setting false to prevent menu from staying open when it's not on mobile
+  useEffect(() => {
+    const closeMenuOnResize = () => {
+      if (isActive && window.innerWidth > 976) {
+        setIsActive(false);
+      }
+    };
+    window.addEventListener('resize', closeMenuOnResize);
+    
+    //return function for useEffect to clear when component dismount
+    return () => {
+      window.removeEventListener('resize', closeMenuOnResize);
+    };
+  }, [isActive]);
+  
   return (
     <>
     <div className="header-container">
@@ -46,6 +65,8 @@ const Header:FC = () => {
           </div>
         </div>
       </div>    
+
+      {/* Ham menu goes here (There is no actual link for) */}
       <div className={`header-navOverlay ${isActive? "showNav" : ""}`}>
         <div className="header-suggestMobile">
           <Link to={""}>Browse</Link>

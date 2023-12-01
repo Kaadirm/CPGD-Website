@@ -252,15 +252,14 @@ a {
   transform: translate(0, -11px) rotate(45deg);
 }
 .header-container .header-navOverlay {
-  position: fixed;
   width: 100%;
-  z-index: 9;
   font-family: "Helvetica Now Display", sans-serif;
   font-weight: 700;
-  height: 0;
+  opacity: 0;
   overflow: hidden;
   transform: translateY(-100%);
-  transition: height 200ms ease-in-out, transform 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
+  position: absolute;
 }
 .header-container .header-navOverlay .header-suggestMobile {
   width: 100%;
@@ -296,9 +295,9 @@ a {
   flex-direction: column;
   align-items: center;
   font-size: calc(0.8rem + 0.8vw);
-  height: 100%;
+  opacity: 1;
   transform: translateY(0);
-  transition: height 200ms ease-in-out, transform 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
 }
 
 .homePage-container {
@@ -912,7 +911,7 @@ a {
   width: calc(25vw + 11rem);
   top: 25%;
   height: calc(17.25vw + 7.6rem);
-  z-index: 55;
+  z-index: 12;
   transform: translateX(1vw);
   position: relative;
   display: none;

@@ -32,18 +32,27 @@ import {Modal} from "../Components/Modules/module"
 
 
 const HomePage: FC = () => {
+              //Variables
+
+  //State to store data from API request for images
   const [teams, setTeams] = useState<Teams[] | null>([])
+  //Error variables to show in case any error occurs
   const [error, setError] = useState<string | null>()
+  //Form state by using interface Modal
   const [modalForm, setModalForm] = useState<Modal>({
     name: "",
     email: "" 
   })
+  //These variables are only used for modal show-up and closing with X
+  //Used href cause it is a simple request no need to re-render component
   const popupForm = useRef<HTMLDivElement>(null)
   const popupFormFrame = useRef<HTMLFormElement>(null)
   const succesFormFrame = useRef<HTMLDivElement>(null)
+
+  //variable to store data.message from php endpoint, if there is succes to post
   const [popupFormMessage, setPopupFormMessage] = useState<string | null>()
 
-  
+  //Simple api call when component is created
   useEffect(() => {
     axios.get("https://case.justdesignfx.com/team.php")
       .then(response => {
@@ -54,6 +63,7 @@ const HomePage: FC = () => {
       })
   },[])
 
+  //Changing modalForm to hold input.value from users
   const handleModalChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const {name, value} = e.target
     setModalForm(preObj => ({
@@ -62,6 +72,7 @@ const HomePage: FC = () => {
     }))
   }
 
+  //post event when submit event starts
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     axios.post('https://case.justdesignfx.com/form.php', modalForm)
@@ -82,6 +93,9 @@ const HomePage: FC = () => {
 
   }
 
+    //Click events with href attribute 
+
+  //Opening modal form
   const handleClickModalForm = ():void => {
     if(succesFormFrame.current){
       succesFormFrame.current.style.display = "none"
@@ -94,6 +108,8 @@ const HomePage: FC = () => {
     }
     
   }
+  //Closing modal form with X tag or done button 
+  //and clearing form data to get a new application
   const handleClosingTag = ():void => {
     if(popupForm.current){
       popupForm.current.style.display = "none";
@@ -108,6 +124,7 @@ const HomePage: FC = () => {
   return (
     <>
     <div className="homePage-container">
+      
       
       <div className="homePage-mainFrame">
         <div className="homePage-companyHeadline">
@@ -149,6 +166,7 @@ const HomePage: FC = () => {
         </div>
       </div>
       
+
       <div className="homePage-dealFrame">
         <div className="homePage-dealHeadline">Access to Deal Flow</div>
         <div className="homePage-dealParagraph">Because of our pulse on emerging trends, 
@@ -191,9 +209,9 @@ const HomePage: FC = () => {
               <FaArrowCircleRight />
             </div> : "" }
           </div>) : null}
-
         </div>
       </div>
+
 
       <div className="homePage-partnerBrand-slide">
         <div className="homePage-partnerBrand-slideWrapper">
@@ -259,9 +277,10 @@ const HomePage: FC = () => {
           </div>
         </div>
       </div>
+
+
       <div className="homePage-suggestion-div">
         <div className="homePage-suggestion-boxes">
-
           <div className="homePage-suggestion-box1">
               <img src={Suggestion1} alt="Suggestion1" className='homePage-suggestion-img1' />
               <p>Mentorship</p>
@@ -285,7 +304,6 @@ const HomePage: FC = () => {
           need to be accredited.</p>
           <p>Because these deals are too sweet to gate-keep.</p>
           </div>
-
           <div className="homePage-modal-div" onClick={handleClickModalForm}>
             <div className='homePage-modalwrapper'>
               <div>APPLY NOW</div>
@@ -312,6 +330,7 @@ const HomePage: FC = () => {
           className='homePage-suggestion-VictorySign-img' />
         </div>
       </div>
+
 
       <div ref={popupForm} className="homePage-modalForm-container">
         <form ref={popupFormFrame} className="homePage-modalForm" onSubmit={handleSubmit}>
@@ -344,9 +363,6 @@ const HomePage: FC = () => {
           </div>
           <img src={VictorySign} alt="victory-sign" />
         </div>
-        
-
-
         {/* Closing Tag for modalForm and Succes */}
         <div className="homePage-modalForm-closingTag" onClick={handleClosingTag}>
           X
