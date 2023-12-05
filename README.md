@@ -6,7 +6,7 @@ CPGD-Website is a web page built with React and TypeScript
 
 ## Table of Contents
 
-- [CPGD-Website](#vanlifewebsite-react)
+- [CPGD-Website](#cpgd-website)
   - [Table of Contents](#table-of-contents)
   - [Demo](#demo)
   - [Technology Used](#technology-used)
