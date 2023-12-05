@@ -67,9 +67,18 @@ It responsive to all screen included mobile.
 
 ### Larger Screens
 
-
+![CPGD_larger1](https://github.com/Kaadirm/CPGD-Website/assets/141996672/ec2101c4-006a-4684-bc84-a1cfb17b9ce7)
 
 ### Mobile
+
+![Mobile](https://github.com/Kaadirm/CPGD-Website/assets/141996672/18af7546-7a8f-425c-aad9-f4f0d65a80fc)
+
+![768px_Table](https://github.com/Kaadirm/CPGD-Website/assets/141996672/2a6b2e88-74b3-417b-bb0d-f8924b87e6eb)
+
+![Form](https://github.com/Kaadirm/CPGD-Website/assets/141996672/eef39401-d377-4624-915f-5c2432c67673)
+
+![Success](https://github.com/Kaadirm/CPGD-Website/assets/141996672/d6de8e3f-b3c1-4066-8c2d-4ca50264a8cd)
+
 
 
 
