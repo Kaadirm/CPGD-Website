@@ -11,8 +11,7 @@ CPGD-Website is a web page built with React and TypeScript
   - [Demo](#demo)
   - [Technology Used](#technology-used)
   - [Installation](#installation)
-  - [Usage](#usage)
-  - [Folder Structure](#folder-structure)
+  - [Folder Structure](#src-folder-structure)
   - [Responsive Images](#images)
 
 
@@ -52,15 +51,15 @@ Now you have successfully installed and set up the VanlifeWebsite-React web appl
 
 ## SRC Folder Structure
 
-C:\src
-| 
-|––– Assets
-|
-|––– Components
-|
-|––– LayoutScss
-|
-|––– Pages
+C:\src <br/>
+| <br />
+|––– Assets <br />
+|<br />
+|––– Components <br />
+| <br />
+|––– LayoutScss <br />
+|<br />
+|––– Pages 
 
 ## Images
 
